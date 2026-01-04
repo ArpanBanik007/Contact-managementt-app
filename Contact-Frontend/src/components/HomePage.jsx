@@ -21,7 +21,7 @@ export default function HomePage() {
   const getContactsHandler = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/v1/contact/getContacts"
+        "https://contact-managementt-app.onrender.com/getContacts"
       );
       setContacts(res.data.data || []);
     } catch (error) {
@@ -52,10 +52,9 @@ export default function HomePage() {
   const handleUpdateContact = async () => {
     let phone = editForm.phone;
     try {
-      await axios.patch(
-        `http://localhost:8000/api/v1/contact/${phone}`,
-        { name: editForm.name }
-      );
+      await axios.patch(`http://localhost:8000/api/v1/contact/${phone}`, {
+        name: editForm.name,
+      });
 
       setEditingId(null);
       getContactsHandler();
@@ -97,7 +96,8 @@ export default function HomePage() {
             <div
               key={contact._id}
               className="bg-white rounded-lg shadow-md p-4
-              grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-center">
+              grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-center"
+            >
               {/* Name */}
               <div>
                 <p className="text-xs text-gray-500">Name</p>
@@ -175,7 +175,8 @@ export default function HomePage() {
           onClick={addContactHandler}
           className="cursor-pointer bg-[#4337e6] text-white
           text-center py-4 rounded-xl shadow-lg
-          font-semibold hover:opacity-90 transition">
+          font-semibold hover:opacity-90 transition"
+        >
           ADD CONTACT
         </div>
       </div>

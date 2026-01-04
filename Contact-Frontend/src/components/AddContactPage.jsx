@@ -34,7 +34,7 @@ const AddContactPage = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://localhost:8000/api/v1/contact/addContacts",
+        "https:/contact-managementt-app.onrender.com/addContacts",
         formData,
         {
           headers: {
@@ -113,12 +113,14 @@ const AddContactPage = () => {
             value={formData.message}
             onChange={handleChange}
             rows="4"
-            className="w-full border rounded-lg px-4 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            className="w-full border rounded-lg px-4 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          ></textarea>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50">
+            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+          >
             {loading ? "Submitting..." : "Submit"}
           </button>
         </form>

@@ -22,7 +22,7 @@ const UpdateContact = () => {
       setLoading(true);
 
       const res = await axios.patch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/contacts/${identifier}`,
+        `https://contact-managementt-app.onrender.com/api/contacts/${identifier}`,
         { name },
         {
           headers: {
