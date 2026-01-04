@@ -20,9 +20,8 @@ const UpdateContact = () => {
 
     try {
       setLoading(true);
-
       const res = await axios.patch(
-        `https://contact-managementt-app.onrender.com/api/contacts/${identifier}`,
+        `https://contact-managementt-app.onrender.com/api/v1/contact/${identifier}`,
         { name },
         {
           headers: {

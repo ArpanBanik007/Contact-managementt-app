@@ -34,7 +34,8 @@ const AddContactPage = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "https:/contact-managementt-app.onrender.com/addContacts",
+        "https://contact-managementt-app.onrender.com/api/v1/contact/addContacts",
+
         formData,
         {
           headers: {

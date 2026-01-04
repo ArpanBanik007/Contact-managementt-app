@@ -21,7 +21,7 @@ export default function HomePage() {
   const getContactsHandler = async () => {
     try {
       const res = await axios.get(
-        "https://contact-managementt-app.onrender.com/getContacts"
+        "https://contact-managementt-app.onrender.com/api/v1/contact/getContacts"
       );
       setContacts(res.data.data || []);
     } catch (error) {
