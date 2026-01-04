@@ -30,13 +30,20 @@ app.use("/api/v1/contact", contactRoutes);
 // }
 
 
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
 
+  app.use(
+    express.static(
+      path.join(__dirname, "Contact-Frontend/dist")
+    )
+  );
 
-if(process.env.NODE_ENV==="production"){
-  const dirPath= path.resolve();
-  app.use(express.static("Contact-Frontend/dist"))
-  app.get("/*",(req,res)=>{
-    res.sendFile(path.resolve(dirPath,'Contact-Frontend/dist','index.html'))
-  })
+  // ✅ EXPRESS 5 SAFE CATCH-ALL
+  app.get(/.*/, (req, res) => {
+    res.sendFile(
+      path.join(__dirname, "Contact-Frontend/dist/index.html")
+    );
+  });
 }
 export default app;
