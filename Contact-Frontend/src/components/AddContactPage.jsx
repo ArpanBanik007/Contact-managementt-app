@@ -33,15 +33,11 @@ const AddContactPage = () => {
     try {
       setLoading(true);
 
+      // frontend
       const res = await axios.post(
         "https://contact-managementt-app.onrender.com/api/v1/contact/addContacts",
-
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        formData, // make sure formData has name, email, phone
+        { headers: { "Content-Type": "application/json" } }
       );
 
       setSuccess(res.data.message || "Contact created successfully");

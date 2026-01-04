@@ -23,11 +23,7 @@ const UpdateContact = () => {
       const res = await axios.patch(
         `https://contact-managementt-app.onrender.com/api/v1/contact/${identifier}`,
         { name },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        { headers: { "Content-Type": "application/json" } }
       );
 
       setSuccess(res.data.message || "Contact updated successfully");
